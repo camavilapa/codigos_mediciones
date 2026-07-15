@@ -4,8 +4,8 @@ import numpy as np
 # 1. CARGA DE DATOS DESDE EL ARCHIVO .TXT
 # Cambia 'datos.txt' por el nombre real de tu archivo.
 # 'unpack=True' sirve para separar las columnas directamente en tiempo y aceleracion.
-archivo1 = 'datos_enY1.txt'
-nombre_grafica = 'a_vs_t_5V.png'
+archivo1 = 'motor2.8V.txt'
+nombre_grafica = 'a_vs_t_2.8V.png'
 
 tiempo, aceleracion = np.loadtxt(f'datos/{archivo1}', delimiter='\t', unpack=True)
 
