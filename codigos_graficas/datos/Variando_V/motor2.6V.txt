@@ -1,6 +1,4 @@
 
---- INICIANDO LECTURA DE 10 SEGUNDOS ---
-Tiempo(ms),Aceleracion_Z(m/s^2)
 0	-0.375241
 9	-0.357284
 18	-0.281867
@@ -1650,4 +1648,3 @@ Tiempo(ms),Aceleracion_Z(m/s^2)
 14978	-0.436293
 14987	-0.630223
 14996	-0.618252
---- MEDICIÓN FINALIZADA ---
