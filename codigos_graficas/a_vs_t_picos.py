@@ -4,8 +4,8 @@ import numpy as np
 # 1. CARGA DE DATOS DESDE EL ARCHIVO .TXT
 # Cambia 'datos.txt' por el nombre real de tu archivo.
 # 'unpack=True' sirve para separar las columnas directamente en tiempo y aceleracion.
-archivo1 = 'motor2.8V.txt'
-nombre_grafica = 'a_vs_t_2.8V.png'
+archivo1 = 'variando_peso/60gramos.txt'
+nombre_grafica = 'a_vs_t_60gr.png'
 
 tiempo, aceleracion = np.loadtxt(f'datos/{archivo1}', delimiter='\t', unpack=True)
 
@@ -25,11 +25,17 @@ valor_pico = aceleracion[indice_pico]
 fig, ax = plt.subplots(figsize=(6, 5.5))
 
 # Graficamos con una línea negra ('black') y un grosor estilizado
-ax.plot(tiempo, aceleracion, color='black', linewidth=1)
+# líneas: ax.plot(tiempo, aceleracion, color='black', linewidth=1)
+# puntos: ax.plot(tiempo, aceleracion, 'o', color='black', markersize=2.5, alpha=0.6, markeredgewidth=0)
+ax.plot(tiempo, aceleracion, marker='o', color='black', markersize=2.5, linewidth=0.7, alpha=0.7, markeredgewidth=0)
+
+
+
+
 
 # --- MARCAMOS EL VALOR PICO ---
 # Punto rojo sobre el pico para destacarlo
-ax.plot(tiempo_pico, valor_pico, 'o', color='#212021', markersize=6, zorder=5)
+ax.plot(tiempo_pico, valor_pico, 'o', color="#EF2C2C", markersize=2.5, zorder=5)
 
 # Etiqueta con el valor exacto del pico (ej. "0.85 g")
 # xytext desplaza el texto para que no tape la línea ni el punto
@@ -50,7 +56,7 @@ ax.set_xlabel('Time (s)', fontsize=12, labelpad=8)
 ax.set_ylabel('Acceleration (g)', fontsize=12, labelpad=8)
 
 # Cuadrícula del fondo (gris clara y sutil)
-ax.grid(True, linestyle='-', alpha=0.4, color='lightgray')
+ax.grid(True, linestyle='-', alpha=0.6, color='lightgray')
 
 # Estilo de la caja (hacer las líneas del borde un poco más delgadas si se desea)
 for spine in ax.spines.values():
@@ -64,7 +70,7 @@ plt.tight_layout()
 #plt.subplots_adjust(bottom=0.15)  # Deja espacio abajo para la letra "a)"
 
 # Guardar y mostrar la gráfica
-plt.savefig(f'graficas/{nombre_grafica}', format='png', dpi=300)
+plt.savefig(f'graficas/variando_Peso/{nombre_grafica}', format='png', dpi=300)
 
 # Imprimir el valor pico en consola también, por si lo necesitas para tu reporte
 print(f"Valor pico de aceleración: {valor_pico:.6f} g en t = {tiempo_pico:.4f} s")
