@@ -4,8 +4,8 @@ import numpy as np
 # 1. CARGA DE DATOS DESDE EL ARCHIVO .TXT
 # Cambia 'datos.txt' por el nombre real de tu archivo.
 # 'unpack=True' sirve para separar las columnas directamente en tiempo y aceleracion.
-archivo1 = 'variando_peso/60gramos.txt'
-nombre_grafica = 'a_vs_t_60gr.png'
+archivo1 = 'espuma_con_sin/conespuma4.txt'
+nombre_grafica = 'variando_Espuma/a_conespuma4.png'
 
 tiempo, aceleracion = np.loadtxt(f'datos/{archivo1}', delimiter='\t', unpack=True)
 
@@ -70,7 +70,7 @@ plt.tight_layout()
 #plt.subplots_adjust(bottom=0.15)  # Deja espacio abajo para la letra "a)"
 
 # Guardar y mostrar la gráfica
-plt.savefig(f'graficas/variando_Peso/{nombre_grafica}', format='png', dpi=300)
+plt.savefig(f'graficas/{nombre_grafica}', format='png', dpi=300)
 
 # Imprimir el valor pico en consola también, por si lo necesitas para tu reporte
 print(f"Valor pico de aceleración: {valor_pico:.6f} g en t = {tiempo_pico:.4f} s")
