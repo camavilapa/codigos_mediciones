@@ -4,8 +4,8 @@ import numpy as np
 # 1. CARGA DE DATOS DESDE EL ARCHIVO .TXT
 # Cambia 'datos.txt' por el nombre real de tu archivo.
 # 'unpack=True' sirve para separar las columnas directamente en tiempo y aceleracion.
-archivo1 = 'espuma_con_sin/conespuma4.txt'
-nombre_grafica = 'variando_Espuma/a_conespuma4.png'
+archivo1 = 'espuma_con_sin/sinespuma1.txt'
+nombre_grafica = 'variando_Espuma/a_Sin2.png'
 
 tiempo, aceleracion = np.loadtxt(f'datos/{archivo1}', delimiter='\t', unpack=True)
 
@@ -39,7 +39,7 @@ ax.plot(tiempo_pico, valor_pico, 'o', color="#EF2C2C", markersize=2.5, zorder=5)
 
 # Etiqueta con el valor exacto del pico (ej. "0.85 g")
 # xytext desplaza el texto para que no tape la línea ni el punto
-ax.annotate(f"{valor_pico:.3f} g",
+ax.annotate(f"{valor_pico:.3f} m s$^{{-2}}$",
             xy=(tiempo_pico, valor_pico),
             xytext=(10, 10),
             textcoords='offset points',
@@ -53,7 +53,7 @@ ax.annotate(f"{valor_pico:.3f} g",
 
 # Títulos de los ejes (idénticos a tu imagen)
 ax.set_xlabel('Time (s)', fontsize=12, labelpad=8)
-ax.set_ylabel('Acceleration (g)', fontsize=12, labelpad=8)
+ax.set_ylabel('Acceleration ($\mathrm{m/s^2}$)', fontsize=12, labelpad=8)
 
 # Cuadrícula del fondo (gris clara y sutil)
 ax.grid(True, linestyle='-', alpha=0.6, color='lightgray')

@@ -3,8 +3,8 @@ import numpy as np
 from scipy import signal
 
 # 1. CARGA Y PREPARACIÓN DE DATOS
-archivo1 = 'datos_enY1.txt'
-nombre_grafica = 'psd_5V.png'
+archivo1 = 'espuma_con_sin/sinespuma1.txt'
+nombre_grafica = 'variando_Espuma/psd_Sin2.png'
 tiempo, aceleracion = np.loadtxt(f'datos/{archivo1}', delimiter='\t', unpack=True)
 tiempo = tiempo / 1000  # Convertir milisegundos a segundos
 
@@ -22,7 +22,7 @@ picos_en_rango = [p for p in todos_los_picos if 0 <= frecuencias[p] <= 50]
 
 # Ordenamos los picos de mayor a menor magnitud (potencia) y nos quedamos con los 3 más altos
 picos_ordenados_por_magnitud = sorted(picos_en_rango, key=lambda x: psd[x], reverse=True)
-top_3_picos = picos_ordenados_por_magnitud[:1]
+top_3_picos = picos_ordenados_por_magnitud[:3]
 
 # Los volvemos a ordenar, pero esta vez por frecuencia (de izquierda a derecha) para el gráfico
 top_3_picos = sorted(top_3_picos)
@@ -41,7 +41,7 @@ for p in top_3_picos:
     
     # Dibujamos un pequeño punto negro sobre el pico para marcarlo
     ax.plot(f_pico, psd_pico, 'ko', markersize=4)
-    
+    print(f"Valor pico de psd: {psd_pico:.2f} dB en f = {f_pico:.2f} Hz")
     # Añadimos el texto interactivo al lado del pico (ej. "4.08 Hz")
     # 'xytext=(5, 5)' desplaza el texto ligeramente arriba y a la derecha del punto para que no lo tape
     ax.annotate(f"({psd_pico:.2f} dB, {f_pico:.2f} Hz)", 
@@ -70,3 +70,5 @@ plt.tight_layout()
 
 # Guardar y mostrar
 plt.savefig(f'graficas/{nombre_grafica}', format='png', dpi=300)
+
+

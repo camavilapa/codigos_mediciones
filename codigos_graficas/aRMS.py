@@ -1,7 +1,7 @@
 import numpy as np
 
 # Nombre del archivo
-archivo = "datos.txt"
+archivo = "datos/espuma_con_sin/Conespuma_definitivo.txt"
 
 # Cargar datos del archivo
 # Se asume el formato:
